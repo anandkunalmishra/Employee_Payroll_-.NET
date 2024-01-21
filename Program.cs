@@ -19,33 +19,58 @@
 
         public static void Main(String[] args)
         {
-            //Check for the presence of the Employee
+            Console.WriteLine("Choose the option you want");
+            Console.WriteLine("\toption 1:check for presence");
+            Console.WriteLine("\toption2:calculate daily wage");
+            Console.WriteLine("\toption3:calculate for part-time Employee");
 
-                Random random = new Random();
+            int option = Convert.ToInt32(Console.ReadLine());
 
-                if(isPresent(random))
-                {
+            switch (option)
+            {
+                case 1:
 
-                    Console.WriteLine("Employee is present");
-                }
-                else
-                {
-                    Console.WriteLine("Employee is not present");
-                }
+                    //Check for the presence of the Employee
 
-            // Calculate the Daily Wage of the Employee
+                    Random random = new Random();
 
-                const double wagePerHour = 20;
-                const double fullDayHour = 8;
-                double wageCalculated = dailyEmployeeWage(wagePerHour, fullDayHour);
-                Console.WriteLine($"The Calculated daily wage for the Employee is {wageCalculated}");
+                    if (isPresent(random))
+                    {
+                        Console.WriteLine("Employee is present");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Employee is not present");
+                    }
 
-            // For Part time Employee : suppose he works for 5hrs
-                const double partTimeDayHour = 5;
-                double partTimeWageCalculated = dailyEmployeeWage(wagePerHour, partTimeDayHour);
-                Console.WriteLine($"The Part time employee's wage for a day is {partTimeWageCalculated}");
+                    break;
 
+                case 2:
 
+                    // Calculate the Daily Wage of the Employee
+
+                    const double wagePerHour = 20;
+                    const double fullDayHour = 8;
+                    double wageCalculated = dailyEmployeeWage(wagePerHour, fullDayHour);
+                    Console.WriteLine($"The Calculated daily wage for the Employee is {wageCalculated}");
+
+                    break;
+
+                case 3:
+
+                    // For Part time Employee : suppose he works for 5hrs
+                    const double partTimeDayHour = 5;
+                    double partTimeWageCalculated = dailyEmployeeWage(wagePerHour, partTimeDayHour);
+                    Console.WriteLine($"The Part time employee's wage for a day is {partTimeWageCalculated}");
+
+                    break;
+
+                default:
+                    Console.WriteLine("Wrong Option Choosen");
+                    break;
+            }
+
+            //for making output stable we use the below command else it ends abruptly
             Console.ReadLine();
         }
     }
