@@ -15,16 +15,24 @@
             return wagePerHour * fullDayHour;
         }
 
+        public static double totalMothlywage(int workingDays,double wagePerDay)
+        {
+            return workingDays * wagePerDay;
+        }
+
 
 
         public static void Main(String[] args)
         {
             Console.WriteLine("Choose the option you want");
-            Console.WriteLine("\toption 1:check for presence");
-            Console.WriteLine("\toption2:calculate daily wage");
-            Console.WriteLine("\toption3:calculate for part-time Employee");
+            Console.WriteLine("\toption1 : check for presence");
+            Console.WriteLine("\toption2 : calculate daily wage");
+            Console.WriteLine("\toption3 : calculate for part-time Employee");
+            Console.WriteLine("\toption4 : calculate Monthly wage");
 
             int option = Convert.ToInt32(Console.ReadLine());
+
+            double wageCalculated = 0;
 
             switch (option)
             {
@@ -51,7 +59,7 @@
 
                     const double wagePerHour = 20;
                     const double fullDayHour = 8;
-                    double wageCalculated = dailyEmployeeWage(wagePerHour, fullDayHour);
+                    wageCalculated = dailyEmployeeWage(wagePerHour, fullDayHour);
                     Console.WriteLine($"The Calculated daily wage for the Employee is {wageCalculated}");
 
                     break;
@@ -65,8 +73,22 @@
 
                     break;
 
+                case 4:
+
+                    // For Calculation of the Monthly wage
+                    wageCalculated = dailyEmployeeWage(wagePerHour, fullDayHour);
+
+                    const int totalWorkingDay = 20;
+
+                    double monthlyWage = totalMothlywage(totalWorkingDay, wageCalculated) ;
+                    Console.WriteLine($"The monthly wage is {monthlyWage}");
+
+                    break;
+
                 default:
+
                     Console.WriteLine("Wrong Option Choosen");
+
                     break;
             }
 
