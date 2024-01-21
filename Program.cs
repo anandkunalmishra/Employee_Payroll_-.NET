@@ -2,6 +2,9 @@
 {
     class Payrole
     {
+        const double wagePerHour = 20;
+        const double fullDayHour = 8;
+
         public static bool isPresent(Random random)
         {
             int presentStatus = random.Next(0, 2);
@@ -20,6 +23,22 @@
             return workingDays * wagePerDay;
         }
 
+        public static void calculateWages()
+        {
+            double workHourCount = 0;
+            int dayCount = 0;
+            double totalWage = 0;
+            while(workHourCount<100 && dayCount < 20)
+            {
+                Console.WriteLine("Enter today's work hour");
+                double todaysWorkHour = Convert.ToInt32(Console.ReadLine());
+                workHourCount += todaysWorkHour;
+                totalWage += wagePerHour * todaysWorkHour;
+                Console.WriteLine($"The wage upto now is {totalWage} and day today is Day {++dayCount} also total work hour is {workHourCount}");
+            }
+
+            Console.WriteLine("... Calculation completed ...");
+        }
 
 
         public static void Main(String[] args)
@@ -29,6 +48,7 @@
             Console.WriteLine("\toption2 : calculate daily wage");
             Console.WriteLine("\toption3 : calculate for part-time Employee");
             Console.WriteLine("\toption4 : calculate Monthly wage");
+            Console.WriteLine("\toption5 : calculate Wage based on constraint time (==100hrs) or (==20days) ");
 
             int option = Convert.ToInt32(Console.ReadLine());
 
@@ -82,6 +102,12 @@
 
                     double monthlyWage = totalMothlywage(totalWorkingDay, wageCalculated) ;
                     Console.WriteLine($"The monthly wage is {monthlyWage}");
+
+                    break;
+
+                case 5:
+                    // UC 5
+                    calculateWages();
 
                     break;
 
