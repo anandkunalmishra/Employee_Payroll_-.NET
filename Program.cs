@@ -16,29 +16,34 @@
         }
 
 
+
         public static void Main(String[] args)
         {
             //Check for the presence of the Employee
 
-            Random random = new Random();
+                Random random = new Random();
 
-            if(isPresent(random))
-            {
+                if(isPresent(random))
+                {
 
-                Console.WriteLine("Employee is present");
-            }
-            else
-            {
-                Console.WriteLine("Employee is not present");
-            }
+                    Console.WriteLine("Employee is present");
+                }
+                else
+                {
+                    Console.WriteLine("Employee is not present");
+                }
 
             // Calculate the Daily Wage of the Employee
 
-            const double wagePerHour = 20;
-            const double fullDayHour = 8;
+                const double wagePerHour = 20;
+                const double fullDayHour = 8;
+                double wageCalculated = dailyEmployeeWage(wagePerHour, fullDayHour);
+                Console.WriteLine($"The Calculated daily wage for the Employee is {wageCalculated}");
 
-            double wageCalculated = dailyEmployeeWage(wagePerHour, fullDayHour);
-            Console.WriteLine($"The Calculated daily wage for the Employee is {wageCalculated}");
+            // For Part time Employee : suppose he works for 5hrs
+                const double partTimeDayHour = 5;
+                double partTimeWageCalculated = dailyEmployeeWage(wagePerHour, partTimeDayHour);
+                Console.WriteLine($"The Part time employee's wage for a day is {partTimeWageCalculated}");
 
 
             Console.ReadLine();
